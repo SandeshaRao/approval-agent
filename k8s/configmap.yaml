@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quota-config
+
+data:
+  CPU_UTILIZATION_THRESHOLD: "70"
+  MEMORY_UTILIZATION_THRESHOLD: "70"
+  LLM_MODEL: "gpt-4o-mini"

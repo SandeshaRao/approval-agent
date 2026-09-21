@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  quota-approval:
+    build: .
+    container_name: quota-approval
+    ports:
+      - "8000:8000"
+    environment:
+      AZURE_SUBSCRIPTION_ID: ${AZURE_SUBSCRIPTION_ID}
+      AZURE_RESOURCE_GROUP: ${AZURE_RESOURCE_GROUP}
+      AKS_CLUSTER_NAME: ${AKS_CLUSTER_NAME}
+      AKS_NODE_POOL_NAME: ${AKS_NODE_POOL_NAME}
+      TEAMS_WEBHOOK_URL: ${TEAMS_WEBHOOK_URL}
+      LLM_API_KEY: ${LLM_API_KEY}
+      LLM_MODEL: ${LLM_MODEL}
+      CPU_UTILIZATION_THRESHOLD: ${CPU_UTILIZATION_THRESHOLD}
+      MEMORY_UTILIZATION_THRESHOLD: ${MEMORY_UTILIZATION_THRESHOLD}
+    restart: unless-stopped
